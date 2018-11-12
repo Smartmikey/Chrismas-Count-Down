@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Another CountDown</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			background: url("background1.jpg");
+			color: #fff;
+			font-size: 22px;
+		}
+		nav ul li {
+			list-style-type: none;
+			margin:10px;
+		}
+		.nav {
+			font-size: 12px;
+			position: absolute;
+			top: 15px;
+			right: 3px;
+			
+
+		} 
+		.nav li {
+			border:2px solid #fff;
+			border-radius: 15px;
+			padding: 10px;
+		}
+		nav li:hover {
+			background: #fff;
+			color: #000;
+		}
+		.nav li:hover a {
+			color:#000;
+		}
+		.nav li a {
+			text-decoration: none;
+			color: #fff;
+
+		}
+		nav ul {
+			display: flex;
+		}
+		.logo-below {
+			position: absolute;
+			left: 126px;
+			top:75px;
+		}
+		.logo-text {
+			margin-top: 0px;
+		}
+		main {
+			text-align: center;
+		}
+		main div {
+			height: 140px;
+			width: 100px;
+			background: rgb(1, 103, 255);
+			margin:20px;
+			display: inline-flex;
+			border-radius: 10px;
+			font-size: 30px;
+			text-align: center;
+		}
+		
+		.counter {
+			position: absolute;
+		    top: 305px;
+		    font-size: 3em;
+		    margin-left: 40px;
+		    font-family: fantasy;
+		}
+		.words {
+			font-size: 21px;
+		    position: absolute;
+		    margin-top: 70px;
+		    margin-left: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<nav>
+		<ul class="logo">
+			<li class="logo-text"><h2>Techpoint</h2></li>
+			<li class="logo-below">.africa</li>
+		</ul>
+		<ul class="nav">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Built 2018</a></li>
+			<li><a href="#">Speaker & Judges</a></li>
+			<li><a href="#">Register to Attend</a></li>
+			<li><a href="#">Register to Pitch</a></li>
+			<li><a href="#">Book a Booth</a></li>
+			<li><a href="#">Sponsor Us</a></li>
+			<li><a href="#">News</a></li>
+		</ul>
+		<main>
+			<h1>TECHPOINT BUILD</h1>
+			<p>The biggest startup in West Africa will be live for 24 hours with speakers and over 5000 attendanees expected</p>
+
+			<span id="week" class="counter"></span><div ><br><span class="words">Weeks</span></div>
+			<span id="days" class="counter"></span><div ><br><span class="words">Days</span></div>
+			<span id="hours" class="counter"></span><div ><br><span class="words">Hours</span></div>
+			<span id="mins" class="counter"></span><div ><br><span class="words">Minutes</span></div>
+			<span id="sec" class="counter"></span><div ><br><span class="words">Seconds</span></div>
+		</main>
+	</nav>
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		var countDownDate = new Date("Dec 25, 2018 00:00:00").getTime();
+
+		// Update the count down every 1 second
+		var x = setInterval(function() {
+
+		  // Get todays date and time
+		  var now = new Date().getTime();
+
+		  // Find the distance between now and the count down date
+		  var distance = countDownDate - now;
+
+		  // Time calculations for days, hours, minutes and seconds
+		  var week = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
+		  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		  
+
+			$("#sec").text(seconds).trigger("change");
+			$("#mins").text(minutes).trigger("change");
+			$("#hours").text(hours).trigger("change");
+			$("#days").text(days).trigger("change");
+			$("#week").text(week).trigger("change");
+
+
+
+		  // If the count down is finished, write some text 
+		  if (distance < 0) {
+		    clearInterval(x);
+		    document.getElementById("demo").innerHTML = "EXPIRED";
+		  }
+		}, 1000);
+	</script>
+</body>
+</html>
